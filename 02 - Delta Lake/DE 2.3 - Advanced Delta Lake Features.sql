@@ -195,7 +195,7 @@ DESCRIBE DETAIL students
 -- COMMAND ----------
 
 -- MAGIC %python
--- MAGIC display(spark.sql(f"SELECT * FROM json.`{DA.paths.user_db}/students/_delta_log/00000000000000000007.json`"))
+-- MAGIC display(spark.sql(f"SELECT * FROM json.`{DA.paths.user_db}/students/_delta_log/00000000000000000006.json`"))
 
 -- COMMAND ----------
 
@@ -225,6 +225,11 @@ DESCRIBE DETAIL students
 
 OPTIMIZE students
 ZORDER BY id
+
+-- COMMAND ----------
+
+-- MAGIC %python
+-- MAGIC display(dbutils.fs.ls(f"{DA.paths.user_db}/students"))
 
 -- COMMAND ----------
 
@@ -332,7 +337,7 @@ RESTORE TABLE students TO VERSION AS OF 8
 
 -- COMMAND ----------
 
--- VACUUM students RETAIN 0 HOURS
+VACUUM students RETAIN 0 HOURS
 
 -- COMMAND ----------
 
