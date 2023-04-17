@@ -210,7 +210,7 @@ print("Hello Python!")
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC -- SELECT * FROM demo_tmp_vw
+# MAGIC SELECT * FROM demo_tmp_vw
 
 # COMMAND ----------
 
@@ -289,6 +289,10 @@ print(f"DA.schema_name:       {DA.schema_name}")
 
 # COMMAND ----------
 
+dbutils.fs.help()
+
+# COMMAND ----------
+
 path = f"{DA.paths.datasets}"
 dbutils.fs.ls(path)
 
@@ -304,6 +308,18 @@ dbutils.fs.ls(path)
 # MAGIC When we have tabular data returned by a Python cell, we can call **`display`** to get the same type of preview.
 # MAGIC 
 # MAGIC Here, we'll wrap the previous list command on our file system with **`display`**.
+
+# COMMAND ----------
+
+dbutils.widgets.help()
+
+# COMMAND ----------
+
+dbutils.widgets.text("Name", "Enter your name")
+
+# COMMAND ----------
+
+dbutils.widgets.dropdown("Colors", "Blue", ["Blue", "Green"])
 
 # COMMAND ----------
 
